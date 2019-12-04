@@ -1,0 +1,11 @@
+    
+applications:
+- path: .
+  memory: 256M
+  instances: 1
+  domain: mybluemix.net
+  name: Insurance-Chatbot-Cognitive-Orchestrator
+  host: gsc-fss-insurance-chatbot-watson-prod
+  disk_quota: 1024M
+  
+  

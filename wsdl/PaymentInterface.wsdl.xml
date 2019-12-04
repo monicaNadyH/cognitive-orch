@@ -1,0 +1,342 @@
+<?xml version="1.0" ?><wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://com/majescomastek/stgicd/ws/meta/paymentinterface" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" name="PaymentInterface" targetNamespace="http://com/majescomastek/stgicd/ws/meta/paymentinterface">
+  <wsdl:types>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://com/majescomastek/stgicd/ws/meta/paymentinterface/requestresponse" xmlns:ns1="http://com/majescomastek/stgicd/ws/meta/paymentinterface" targetNamespace="http://com/majescomastek/stgicd/ws/meta/paymentinterface/requestresponse" version="1.0">
+<xs:import namespace="http://com/majescomastek/stgicd/ws/meta/paymentinterface"></xs:import>
+<xs:complexType name="requestResponse">
+    <xs:complexContent>
+      <xs:extension base="ns1:baseWSVo">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="Message" type="tns:message"></xs:element>
+          <xs:element minOccurs="0" name="ProcessStatusFlag" type="xs:string"></xs:element>
+          <xs:element minOccurs="0" name="RequestSeq" type="xs:decimal"></xs:element>
+          <xs:element minOccurs="0" name="SourceSystemRequestNo" type="xs:string"></xs:element>
+          <xs:element minOccurs="0" name="SuccessFlag" type="xs:string"></xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+<xs:complexType name="message">
+    <xs:complexContent>
+      <xs:extension base="ns1:baseWSVo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Code" type="xs:string"></xs:element>
+          <xs:element minOccurs="0" name="Description" type="xs:string"></xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://com/majescomastek/stgicd/ws/meta/paymentinterface" targetNamespace="http://com/majescomastek/stgicd/ws/meta/paymentinterface/requestheader" version="1.0">
+<xs:import namespace="http://com/majescomastek/stgicd/ws/meta/paymentinterface"></xs:import>
+<xs:complexType name="requestHeader">
+    <xs:complexContent>
+      <xs:extension base="ns1:baseWSVo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CountOfDeposits" type="xs:decimal"></xs:element>
+          <xs:element minOccurs="0" name="CountOfRecords" type="xs:decimal"></xs:element>
+          <xs:element minOccurs="0" name="CountOfTransactions" type="xs:decimal"></xs:element>
+          <xs:element minOccurs="0" name="RequestDate" type="xs:date"></xs:element>
+          <xs:element minOccurs="0" name="SourceSystemRequestNo" type="xs:string"></xs:element>
+          <xs:element minOccurs="0" name="TotalPaymentAmount" type="xs:decimal"></xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://com/majescomastek/stgicd/ws/meta/paymentinterface" targetNamespace="http://com/majescomastek/stgicd/ws/meta/paymentinterface/paymentresponsedepositheader/paymentdetail" version="1.0">
+<xs:import namespace="http://com/majescomastek/stgicd/ws/meta/paymentinterface"></xs:import>
+<xs:complexType name="message">
+    <xs:complexContent>
+      <xs:extension base="ns1:baseWSVo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Code" type="xs:string"></xs:element>
+          <xs:element minOccurs="0" name="Description" type="xs:string"></xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://com/majescomastek/stgicd/ws/meta/paymentinterface/paymentresponsedepositheader" xmlns:ns2="http://com/majescomastek/stgicd/ws/meta/paymentinterface/paymentresponsedepositheader/paymentdetail" xmlns:ns1="http://com/majescomastek/stgicd/ws/meta/paymentinterface" targetNamespace="http://com/majescomastek/stgicd/ws/meta/paymentinterface/paymentresponsedepositheader" version="1.0">
+<xs:import namespace="http://com/majescomastek/stgicd/ws/meta/paymentinterface"></xs:import>
+<xs:import namespace="http://com/majescomastek/stgicd/ws/meta/paymentinterface/paymentresponsedepositheader/paymentdetail"></xs:import>
+<xs:complexType name="paymentResponseDepositHeader">
+    <xs:complexContent>
+      <xs:extension base="ns1:baseWSVo">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="Message" type="tns:message"></xs:element>
+          <xs:element minOccurs="0" name="PaymentDepositSeq" type="xs:decimal"></xs:element>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="PaymentDetail" type="tns:paymentDetail"></xs:element>
+          <xs:element minOccurs="0" name="ProcessStatusFlag" type="xs:string"></xs:element>
+          <xs:element minOccurs="0" name="SourceSystemDepositNo" type="xs:string"></xs:element>
+          <xs:element minOccurs="0" name="SuccessFlag" type="xs:string"></xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+<xs:complexType name="message">
+    <xs:complexContent>
+      <xs:extension base="ns1:baseWSVo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Code" type="xs:string"></xs:element>
+          <xs:element minOccurs="0" name="Description" type="xs:string"></xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+<xs:complexType name="paymentDetail">
+    <xs:complexContent>
+      <xs:extension base="ns1:baseWSVo">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="Message" type="ns2:message"></xs:element>
+          <xs:element minOccurs="0" name="PaymentDepositSeq" type="xs:decimal"></xs:element>
+          <xs:element minOccurs="0" name="PaymentId" type="xs:string"></xs:element>
+          <xs:element minOccurs="0" name="PaymentSeq" type="xs:decimal"></xs:element>
+          <xs:element minOccurs="0" name="ProcessStatusFlag" type="xs:string"></xs:element>
+          <xs:element minOccurs="0" name="SourceSystemTransactionNo" type="xs:string"></xs:element>
+          <xs:element minOccurs="0" name="SuccessFlag" type="xs:string"></xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns5="http://com/majescomastek/stgicd/ws/meta/paymentinterface/requestresponse" xmlns:ns4="http://com/majescomastek/stgicd/ws/meta/paymentinterface/paymentresponsedepositheader" xmlns:ns3="http://com/majescomastek/stgicd/ws/meta/paymentinterface/requestheader" xmlns:ns2="http://com/majescomastek/stgicd/ws/meta/paymentinterface/paymentdepositheader" xmlns:ns1="http://com/majescomastek/stgicd/ws/meta/paymentinterface" targetNamespace="http://com/majescomastek/stgicd/ws/meta/paymentinterface/paymentinterface" version="1.0">
+<xs:import namespace="http://com/majescomastek/stgicd/ws/meta/paymentinterface"></xs:import>
+<xs:import namespace="http://com/majescomastek/stgicd/ws/meta/paymentinterface/paymentdepositheader"></xs:import>
+<xs:import namespace="http://com/majescomastek/stgicd/ws/meta/paymentinterface/requestheader"></xs:import>
+<xs:import namespace="http://com/majescomastek/stgicd/ws/meta/paymentinterface/paymentresponsedepositheader"></xs:import>
+<xs:import namespace="http://com/majescomastek/stgicd/ws/meta/paymentinterface/requestresponse"></xs:import>
+<xs:complexType name="servicerequest">
+    <xs:complexContent>
+      <xs:extension base="ns1:baseWSVo">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" name="PaymentDepositHeader" type="ns2:paymentDepositHeader"></xs:element>
+          <xs:element name="RequestHeader" type="ns3:requestHeader"></xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+<xs:complexType name="serviceresponse">
+    <xs:complexContent>
+      <xs:extension base="ns1:baseWSVo">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="PaymentResponseDepositHeader" type="ns4:paymentResponseDepositHeader"></xs:element>
+          <xs:element minOccurs="0" name="RequestResponse" type="ns5:requestResponse"></xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://com/majescomastek/stgicd/ws/meta/paymentinterface/paymentdepositheader" xmlns:ns1="http://com/majescomastek/stgicd/ws/meta/paymentinterface" targetNamespace="http://com/majescomastek/stgicd/ws/meta/paymentinterface/paymentdepositheader" version="1.0">
+<xs:import namespace="http://com/majescomastek/stgicd/ws/meta/paymentinterface"></xs:import>
+<xs:complexType name="paymentDepositHeader">
+    <xs:complexContent>
+      <xs:extension base="ns1:baseWSVo">
+        <xs:sequence>
+          <xs:element name="BankAccountName" type="xs:string"></xs:element>
+          <xs:element minOccurs="0" name="CurrencyCode" type="xs:string"></xs:element>
+          <xs:element name="DepositDate" type="xs:date"></xs:element>
+          <xs:element name="PaymentChannel" type="xs:string"></xs:element>
+          <xs:element name="PaymentCount" type="xs:decimal"></xs:element>
+          <xs:element minOccurs="0" name="PaymentDepositNo" type="xs:string"></xs:element>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="PaymentDetail" type="tns:paymentDetail"></xs:element>
+          <xs:element name="SourceSystemDepositNo" type="xs:string"></xs:element>
+          <xs:element name="TotalDepositAmount" type="xs:decimal"></xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+<xs:complexType name="paymentDetail">
+    <xs:complexContent>
+      <xs:extension base="ns1:baseWSVo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AccountNo" type="xs:string"></xs:element>
+          <xs:element minOccurs="0" name="AdditionaInformation" type="xs:string"></xs:element>
+          <xs:element minOccurs="0" name="ApplicationNo" type="xs:string"></xs:element>
+          <xs:element minOccurs="0" name="BrokerNo" type="xs:string"></xs:element>
+          <xs:element minOccurs="0" name="GroupNo" type="xs:string"></xs:element>
+          <xs:element name="PaymentAmount" type="xs:decimal"></xs:element>
+          <xs:element minOccurs="0" name="PaymentDate" type="xs:date"></xs:element>
+          <xs:element name="PaymentFrom" type="xs:string"></xs:element>
+          <xs:element name="PaymentId" type="xs:string"></xs:element>
+          <xs:element name="PaymentMethod" type="xs:string"></xs:element>
+          <xs:element minOccurs="0" name="PaymentPostMarkDate" type="xs:date"></xs:element>
+          <xs:element minOccurs="0" name="PaymentReceivedDate" type="xs:date"></xs:element>
+          <xs:element minOccurs="0" name="PolicyEffectiveDate" type="xs:date"></xs:element>
+          <xs:element minOccurs="0" name="PolicyNo" type="xs:string"></xs:element>
+          <xs:element name="SourceSystemTransactionNo" type="xs:string"></xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://com/majescomastek/stgicd/ws/meta/paymentinterface" xmlns:ns7="http://com/majescomastek/stgicd/ws/meta/paymentinterface/requestresponse" xmlns:ns6="http://com/majescomastek/stgicd/ws/meta/paymentinterface/paymentresponsedepositheader/paymentdetail" xmlns:ns5="http://com/majescomastek/stgicd/ws/meta/paymentinterface/paymentresponsedepositheader" xmlns:ns4="http://com/majescomastek/stgicd/ws/meta/paymentinterface/requestheader" xmlns:ns3="http://com/majescomastek/stgicd/ws/meta/paymentinterface/paymentdepositheader" xmlns:ns2="http://com/majescomastek/stgicd/ws/meta/authentication" xmlns:ns1="http://com/majescomastek/stgicd/ws/meta/paymentinterface/paymentinterface" attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://com/majescomastek/stgicd/ws/meta/paymentinterface">
+  <xs:import namespace="http://com/majescomastek/stgicd/ws/meta/paymentinterface/paymentinterface"></xs:import>
+  <xs:import namespace="http://com/majescomastek/stgicd/ws/meta/authentication"></xs:import>
+  <xs:import namespace="http://com/majescomastek/stgicd/ws/meta/paymentinterface/paymentdepositheader"></xs:import>
+  <xs:import namespace="http://com/majescomastek/stgicd/ws/meta/paymentinterface/requestheader"></xs:import>
+  <xs:import namespace="http://com/majescomastek/stgicd/ws/meta/paymentinterface/paymentresponsedepositheader"></xs:import>
+  <xs:import namespace="http://com/majescomastek/stgicd/ws/meta/paymentinterface/paymentresponsedepositheader/paymentdetail"></xs:import>
+  <xs:import namespace="http://com/majescomastek/stgicd/ws/meta/paymentinterface/requestresponse"></xs:import>
+  <xs:element name="Authentication" type="ns2:authentication"></xs:element>
+  <xs:element name="IWAAuthentication">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Domain" type="xs:string"></xs:element>
+        <xs:element name="User" type="xs:string"></xs:element>
+        <xs:element name="SecretKey" type="xs:string"></xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Message" nillable="true" type="xs:anyType"></xs:element>
+  <xs:element name="PaymentDepositHeader" type="ns3:paymentDepositHeader"></xs:element>
+  <xs:element name="PaymentDetail" nillable="true" type="xs:anyType"></xs:element>
+  <xs:element name="PaymentResponseDepositHeader" type="ns5:paymentResponseDepositHeader"></xs:element>
+  <xs:element name="RequestHeader" type="ns4:requestHeader"></xs:element>
+  <xs:element name="RequestResponse" type="ns7:requestResponse"></xs:element>
+  <xs:element name="SERVICEREQUEST" type="ns1:servicerequest"></xs:element>
+  <xs:element name="SERVICERESPONSE" type="ns1:serviceresponse"></xs:element>
+  <xs:element name="SSOAuth">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Username" type="xs:string"></xs:element>
+        <xs:element name="Token" type="xs:string"></xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ServiceAccountAuthentication">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Token" type="xs:string"></xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TokenAuthentication">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Token" type="xs:string"></xs:element>
+        <xs:element name="TimeStamp" type="xs:string"></xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UsernamePasswordAuth">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Username" type="xs:string"></xs:element>
+        <xs:element name="Password" type="xs:string"></xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="service" type="tns:service"></xs:element>
+  <xs:element name="serviceResponse" type="tns:serviceResponse"></xs:element>
+  <xs:complexType name="service">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="inputMsg" type="ns1:servicerequest"></xs:element>
+      <xs:element minOccurs="0" name="UserAuthentication" type="ns2:authentication"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType abstract="true" name="baseWSVo">
+    <xs:sequence></xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="serviceResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="ns1:serviceresponse"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Exception" type="tns:Exception"></xs:element>
+  <xs:complexType name="Exception">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="message" type="xs:string"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://com/majescomastek/stgicd/ws/meta/paymentinterface" targetNamespace="http://com/majescomastek/stgicd/ws/meta/authentication" version="1.0">
+<xs:import namespace="http://com/majescomastek/stgicd/ws/meta/paymentinterface"></xs:import>
+<xs:complexType name="authentication">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="UsernamePasswordAuth">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Username" type="xs:string"></xs:element>
+            <xs:element name="Password" type="xs:string"></xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="SSOAuth">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Username" type="xs:string"></xs:element>
+            <xs:element name="Token" type="xs:string"></xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="IWAAuthentication">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Domain" type="xs:string"></xs:element>
+            <xs:element name="User" type="xs:string"></xs:element>
+            <xs:element name="SecretKey" type="xs:string"></xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="TokenAuthentication">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Token" type="xs:string"></xs:element>
+            <xs:element name="TimeStamp" type="xs:string"></xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="ServiceAccountAuthentication">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Token" type="xs:string"></xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="serviceResponse">
+    <wsdl:part element="tns:serviceResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="service">
+    <wsdl:part element="tns:service" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="Exception">
+    <wsdl:part element="tns:Exception" name="Exception">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="PaymentInterface">
+    <wsdl:operation name="service">
+      <wsdl:input message="tns:service" name="service">
+    </wsdl:input>
+      <wsdl:output message="tns:serviceResponse" name="serviceResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:Exception" name="Exception">
+    </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="PaymentInterfaceSoapBinding" type="tns:PaymentInterface">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"></soap:binding>
+    <wsdl:operation name="service">
+      <soap:operation soapAction="" style="document"></soap:operation>
+      <wsdl:input name="service">
+        <soap:body use="literal"></soap:body>
+      </wsdl:input>
+      <wsdl:output name="serviceResponse">
+        <soap:body use="literal"></soap:body>
+      </wsdl:output>
+      <wsdl:fault name="Exception">
+        <soap:fault name="Exception" use="literal"></soap:fault>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="PaymentInterface">
+    <wsdl:port binding="tns:PaymentInterfaceSoapBinding" name="PaymentInterfacePort">
+      <soap:address location="http://10.90.120.107:8092/ICDService/services/PaymentInterface"></soap:address>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

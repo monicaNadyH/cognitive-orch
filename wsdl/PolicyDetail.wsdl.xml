@@ -1,0 +1,414 @@
+<?xml version="1.0" ?><wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://com/majescomastek/stgicd/ws/meta/billinginquiryinterface" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" name="BillingInquiryInterface" targetNamespace="http://com/majescomastek/stgicd/ws/meta/billinginquiryinterface">
+  <wsdl:types>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://com/majescomastek/stgicd/ws/meta/billinginquiryinterface/requestresponse" xmlns:ns1="http://com/majescomastek/stgicd/ws/meta/billinginquiryinterface" targetNamespace="http://com/majescomastek/stgicd/ws/meta/billinginquiryinterface/requestresponse" version="1.0">
+<xs:import namespace="http://com/majescomastek/stgicd/ws/meta/billinginquiryinterface"></xs:import>
+<xs:complexType name="requestResponse">
+    <xs:complexContent>
+      <xs:extension base="ns1:baseWSVo">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="Message" type="tns:message"></xs:element>
+          <xs:element minOccurs="0" name="ProcessStatusFlag" type="xs:string"></xs:element>
+          <xs:element minOccurs="0" name="SourceSystemRequestNo" type="xs:string"></xs:element>
+          <xs:element minOccurs="0" name="SuccessFlag" type="xs:string"></xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+<xs:complexType name="message">
+    <xs:complexContent>
+      <xs:extension base="ns1:baseWSVo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Code" type="xs:string"></xs:element>
+          <xs:element minOccurs="0" name="Description" type="xs:string"></xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://com/majescomastek/stgicd/ws/meta/billinginquiryinterface" targetNamespace="http://com/majescomastek/stgicd/ws/meta/billinginquiryinterface/inputrequest" version="1.0">
+<xs:import namespace="http://com/majescomastek/stgicd/ws/meta/billinginquiryinterface"></xs:import>
+<xs:complexType name="inputRequest">
+    <xs:complexContent>
+      <xs:extension base="ns1:baseWSVo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AccountNo" type="xs:string"></xs:element>
+          <xs:element minOccurs="0" name="NameOfInquiry" type="xs:string"></xs:element>
+          <xs:element minOccurs="0" name="PolicyEffectiveDate" type="xs:date"></xs:element>
+          <xs:element minOccurs="0" name="PolicyNo" type="xs:string"></xs:element>
+          <xs:element minOccurs="0" name="SourceSystemRequestNo" type="xs:string"></xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://com/majescomastek/stgicd/ws/meta/billinginquiryinterface/billinginquirysummary" xmlns:ns1="http://com/majescomastek/stgicd/ws/meta/billinginquiryinterface" targetNamespace="http://com/majescomastek/stgicd/ws/meta/billinginquiryinterface/billinginquirysummary" version="1.0">
+<xs:import namespace="http://com/majescomastek/stgicd/ws/meta/billinginquiryinterface"></xs:import>
+<xs:complexType name="billingInquirySummary">
+    <xs:complexContent>
+      <xs:extension base="ns1:baseWSVo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AccountNo" type="xs:string"></xs:element>
+          <xs:element minOccurs="0" name="Address1" type="xs:string"></xs:element>
+          <xs:element minOccurs="0" name="Address2" type="xs:string"></xs:element>
+          <xs:element minOccurs="0" name="BillingCycleDueDay" type="xs:decimal"></xs:element>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="BillingInquiryEntityDetail" type="tns:billingInquiryEntityDetail"></xs:element>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="BillingInquiryInstallments" type="tns:billingInquiryInstallments"></xs:element>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="BillingInquiryInvoiceDetail" type="tns:billingInquiryInvoiceDetail"></xs:element>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="BillingInquiryNOCDetail" type="tns:billingInquiryNOCDetail"></xs:element>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="BillingInquiryReceivableDetail" type="tns:billingInquiryReceivableDetail"></xs:element>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="BillingInquiryTransactions" type="tns:billingInquiryTransactions"></xs:element>
+          <xs:element minOccurs="0" name="BillType" type="xs:string"></xs:element>
+          <xs:element minOccurs="0" name="BrokerNo" type="xs:string"></xs:element>
+          <xs:element minOccurs="0" name="CancellationDate" type="xs:date"></xs:element>
+          <xs:element minOccurs="0" name="CancellationMethod" type="xs:string"></xs:element>
+          <xs:element minOccurs="0" name="CancellationMethodDescription" type="xs:string"></xs:element>
+          <xs:element minOccurs="0" name="CancellationReason" type="xs:string"></xs:element>
+          <xs:element minOccurs="0" name="CancellationReasonDescription" type="xs:string"></xs:element>
+          <xs:element minOccurs="0" name="City" type="xs:string"></xs:element>
+          <xs:element minOccurs="0" name="CollectionAgencyName" type="xs:string"></xs:element>
+          <xs:element minOccurs="0" name="CollectionFlag" type="xs:string"></xs:element>
+          <xs:element minOccurs="0" name="Country" type="xs:string"></xs:element>
+          <xs:element minOccurs="0" name="County" type="xs:string"></xs:element>
+          <xs:element minOccurs="0" name="EntityType" type="xs:string"></xs:element>
+          <xs:element minOccurs="0" name="FullName" type="xs:string"></xs:element>
+          <xs:element minOccurs="0" name="GoverningState" type="xs:string"></xs:element>
+          <xs:element minOccurs="0" name="HoldDate" type="xs:date"></xs:element>
+          <xs:element minOccurs="0" name="HoldSuspendFlag" type="xs:string"></xs:element>
+          <xs:element minOccurs="0" name="HoldSuspendReason" type="xs:string"></xs:element>
+          <xs:element minOccurs="0" name="HoldSuspendReasonDescription" type="xs:string"></xs:element>
+          <xs:element minOccurs="0" name="HoldSuspendReleaseDate" type="xs:date"></xs:element>
+          <xs:element minOccurs="0" name="LineofBusiness" type="xs:string"></xs:element>
+          <xs:element minOccurs="0" name="OperatingCompany" type="xs:string"></xs:element>
+          <xs:element minOccurs="0" name="OperatingCompanyDescription" type="xs:string"></xs:element>
+          <xs:element minOccurs="0" name="OutputDeliveryMethod" type="xs:string"></xs:element>
+          <xs:element minOccurs="0" name="PaymentMethod" type="xs:string"></xs:element>
+          <xs:element minOccurs="0" name="PaymentPlan" type="xs:string"></xs:element>
+          <xs:element minOccurs="0" name="PaymentPlanDescription" type="xs:string"></xs:element>
+          <xs:element minOccurs="0" name="PolicyCreatedOn" type="xs:date"></xs:element>
+          <xs:element minOccurs="0" name="PolicyEffectiveDate" type="xs:date"></xs:element>
+          <xs:element minOccurs="0" name="PolicyExpirationDate" type="xs:date"></xs:element>
+          <xs:element minOccurs="0" name="PolicyNo" type="xs:string"></xs:element>
+          <xs:element minOccurs="0" name="PolicyStatusDescription" type="xs:string"></xs:element>
+          <xs:element minOccurs="0" name="PresentationDays" type="xs:decimal"></xs:element>
+          <xs:element minOccurs="0" name="ProductCode" type="xs:string"></xs:element>
+          <xs:element minOccurs="0" name="ProductCodeDescription" type="xs:string"></xs:element>
+          <xs:element minOccurs="0" name="ProgramType" type="xs:string"></xs:element>
+          <xs:element minOccurs="0" name="ProgramTypeDescription" type="xs:string"></xs:element>
+          <xs:element minOccurs="0" name="SourceSystem" type="xs:string"></xs:element>
+          <xs:element minOccurs="0" name="State" type="xs:string"></xs:element>
+          <xs:element minOccurs="0" name="SublineOfBusiness" type="xs:string"></xs:element>
+          <xs:element minOccurs="0" name="SuspendNOCFlag" type="xs:string"></xs:element>
+          <xs:element minOccurs="0" name="SuspendNOCReason" type="xs:string"></xs:element>
+          <xs:element minOccurs="0" name="SuspendNOCReleaseDate" type="xs:date"></xs:element>
+          <xs:element minOccurs="0" name="SystemStatus" type="xs:string"></xs:element>
+          <xs:element minOccurs="0" name="UnderwritingCompany" type="xs:string"></xs:element>
+          <xs:element minOccurs="0" name="UnderwritingCompanyDescription" type="xs:string"></xs:element>
+          <xs:element minOccurs="0" name="ZipCode" type="xs:string"></xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+<xs:complexType name="billingInquiryEntityDetail">
+    <xs:complexContent>
+      <xs:extension base="ns1:baseWSVo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Address1" type="xs:string"></xs:element>
+          <xs:element minOccurs="0" name="Address2" type="xs:string"></xs:element>
+          <xs:element minOccurs="0" name="City" type="xs:string"></xs:element>
+          <xs:element minOccurs="0" name="Country" type="xs:string"></xs:element>
+          <xs:element minOccurs="0" name="County" type="xs:string"></xs:element>
+          <xs:element minOccurs="0" name="EntityType" type="xs:string"></xs:element>
+          <xs:element minOccurs="0" name="FullName" type="xs:string"></xs:element>
+          <xs:element minOccurs="0" name="SourceSystemEntityCode" type="xs:string"></xs:element>
+          <xs:element minOccurs="0" name="State" type="xs:string"></xs:element>
+          <xs:element minOccurs="0" name="ZipCode" type="xs:string"></xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+<xs:complexType name="billingInquiryInstallments">
+    <xs:complexContent>
+      <xs:extension base="ns1:baseWSVo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="BalanceAmount" type="xs:decimal"></xs:element>
+          <xs:element minOccurs="0" name="BillDatePrepared" type="xs:date"></xs:element>
+          <xs:element minOccurs="0" name="BillDueDate" type="xs:date"></xs:element>
+          <xs:element minOccurs="0" name="BillSendDate" type="xs:date"></xs:element>
+          <xs:element minOccurs="0" name="PolicyEffectiveDate" type="xs:date"></xs:element>
+          <xs:element minOccurs="0" name="PolicyNo" type="xs:string"></xs:element>
+          <xs:element minOccurs="0" name="ReceivableAmount" type="xs:decimal"></xs:element>
+          <xs:element minOccurs="0" name="ReceivableCategory" type="xs:string"></xs:element>
+          <xs:element minOccurs="0" name="TransactionType" type="xs:string"></xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+<xs:complexType name="billingInquiryInvoiceDetail">
+    <xs:complexContent>
+      <xs:extension base="ns1:baseWSVo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AdjustmentAmountAfterLastInvoice" type="xs:decimal"></xs:element>
+          <xs:element minOccurs="0" name="Balance" type="xs:decimal"></xs:element>
+          <xs:element minOccurs="0" name="CurrentMinDueAmount" type="xs:decimal"></xs:element>
+          <xs:element minOccurs="0" name="LastInvoiceAmount" type="xs:decimal"></xs:element>
+          <xs:element minOccurs="0" name="LastInvoiceDate" type="xs:date"></xs:element>
+          <xs:element minOccurs="0" name="LastInvoiceDueDate" type="xs:date"></xs:element>
+          <xs:element minOccurs="0" name="NextInstallmentDate" type="xs:date"></xs:element>
+          <xs:element minOccurs="0" name="NextInstallmentDueAmount" type="xs:decimal"></xs:element>
+          <xs:element minOccurs="0" name="NextInstallmentDueDate" type="xs:date"></xs:element>
+          <xs:element minOccurs="0" name="PastDueAmount" type="xs:decimal"></xs:element>
+          <xs:element minOccurs="0" name="PaymentReceivedAfterLastInvoice" type="xs:decimal"></xs:element>
+          <xs:element minOccurs="0" name="PleasePayAmount" type="xs:decimal"></xs:element>
+          <xs:element minOccurs="0" name="TotalAdjustmentAmount" type="xs:decimal"></xs:element>
+          <xs:element minOccurs="0" name="TotalPaymentAmount" type="xs:decimal"></xs:element>
+          <xs:element minOccurs="0" name="TotalReceivableAmount" type="xs:decimal"></xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+<xs:complexType name="billingInquiryNOCDetail">
+    <xs:complexContent>
+      <xs:extension base="ns1:baseWSVo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CancellationDate" type="xs:date"></xs:element>
+          <xs:element minOccurs="0" name="NoticeAmount" type="xs:decimal"></xs:element>
+          <xs:element minOccurs="0" name="NoticeDate" type="xs:date"></xs:element>
+          <xs:element minOccurs="0" name="PolicyEffectiveDate" type="xs:date"></xs:element>
+          <xs:element minOccurs="0" name="PolicyNo" type="xs:string"></xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+<xs:complexType name="billingInquiryReceivableDetail">
+    <xs:complexContent>
+      <xs:extension base="ns1:baseWSVo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AmountReceivedIncludingAdjustments" type="xs:decimal"></xs:element>
+          <xs:element minOccurs="0" name="Balance" type="xs:decimal"></xs:element>
+          <xs:element minOccurs="0" name="CommissionLiability" type="xs:decimal"></xs:element>
+          <xs:element minOccurs="0" name="CommissionPaid" type="xs:decimal"></xs:element>
+          <xs:element minOccurs="0" name="ReceivableAmount" type="xs:decimal"></xs:element>
+          <xs:element minOccurs="0" name="ReceivableBilledAmount" type="xs:decimal"></xs:element>
+          <xs:element minOccurs="0" name="ReceivableCategory" type="xs:string"></xs:element>
+          <xs:element minOccurs="0" name="ReceivableCode" type="xs:string"></xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+<xs:complexType name="billingInquiryTransactions">
+    <xs:complexContent>
+      <xs:extension base="ns1:baseWSVo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="PolicyEffectiveDate" type="xs:date"></xs:element>
+          <xs:element minOccurs="0" name="PolicyNo" type="xs:string"></xs:element>
+          <xs:element minOccurs="0" name="SourceSystemTransactionNo" type="xs:string"></xs:element>
+          <xs:element minOccurs="0" name="SuspendTransactionFlag" type="xs:string"></xs:element>
+          <xs:element minOccurs="0" name="SuspendTransactionReason" type="xs:string"></xs:element>
+          <xs:element minOccurs="0" name="SuspendTransactionReleaseDate" type="xs:date"></xs:element>
+          <xs:element minOccurs="0" name="TransactionAmount" type="xs:decimal"></xs:element>
+          <xs:element minOccurs="0" name="TransactionDate" type="xs:date"></xs:element>
+          <xs:element minOccurs="0" name="TransactionEffDate" type="xs:date"></xs:element>
+          <xs:element minOccurs="0" name="TransactionType" type="xs:string"></xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns4="http://com/majescomastek/stgicd/ws/meta/billinginquiryinterface/requestresponse" xmlns:ns3="http://com/majescomastek/stgicd/ws/meta/billinginquiryinterface/billinginquirysummary" xmlns:ns2="http://com/majescomastek/stgicd/ws/meta/billinginquiryinterface/inputrequest" xmlns:ns1="http://com/majescomastek/stgicd/ws/meta/billinginquiryinterface" targetNamespace="http://com/majescomastek/stgicd/ws/meta/billinginquiryinterface/billinginquiryinterface" version="1.0">
+<xs:import namespace="http://com/majescomastek/stgicd/ws/meta/billinginquiryinterface"></xs:import>
+<xs:import namespace="http://com/majescomastek/stgicd/ws/meta/billinginquiryinterface/inputrequest"></xs:import>
+<xs:import namespace="http://com/majescomastek/stgicd/ws/meta/billinginquiryinterface/billinginquirysummary"></xs:import>
+<xs:import namespace="http://com/majescomastek/stgicd/ws/meta/billinginquiryinterface/requestresponse"></xs:import>
+<xs:complexType name="billingInquiryInput">
+    <xs:complexContent>
+      <xs:extension base="ns1:baseWSVo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="InputRequest" type="ns2:inputRequest"></xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+<xs:complexType name="billingInquiryOutput">
+    <xs:complexContent>
+      <xs:extension base="ns1:baseWSVo">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="BillingInquirySummary" type="ns3:billingInquirySummary"></xs:element>
+          <xs:element minOccurs="0" name="RequestResponse" type="ns4:requestResponse"></xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://com/majescomastek/stgicd/ws/meta/billinginquiryinterface" xmlns:ns5="http://com/majescomastek/stgicd/ws/meta/billinginquiryinterface/requestresponse" xmlns:ns4="http://com/majescomastek/stgicd/ws/meta/billinginquiryinterface/billinginquirysummary" xmlns:ns3="http://com/majescomastek/stgicd/ws/meta/billinginquiryinterface/inputrequest" xmlns:ns2="http://com/majescomastek/stgicd/ws/meta/authentication" xmlns:ns1="http://com/majescomastek/stgicd/ws/meta/billinginquiryinterface/billinginquiryinterface" attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://com/majescomastek/stgicd/ws/meta/billinginquiryinterface">
+  <xs:import namespace="http://com/majescomastek/stgicd/ws/meta/billinginquiryinterface/billinginquiryinterface"></xs:import>
+  <xs:import namespace="http://com/majescomastek/stgicd/ws/meta/authentication"></xs:import>
+  <xs:import namespace="http://com/majescomastek/stgicd/ws/meta/billinginquiryinterface/inputrequest"></xs:import>
+  <xs:import namespace="http://com/majescomastek/stgicd/ws/meta/billinginquiryinterface/billinginquirysummary"></xs:import>
+  <xs:import namespace="http://com/majescomastek/stgicd/ws/meta/billinginquiryinterface/requestresponse"></xs:import>
+  <xs:element name="Authentication" type="ns2:authentication"></xs:element>
+  <xs:element name="BillingInquiryEntityDetail" type="ns4:billingInquiryEntityDetail"></xs:element>
+  <xs:element name="BillingInquiryInput" type="ns1:billingInquiryInput"></xs:element>
+  <xs:element name="BillingInquiryInstallments" type="ns4:billingInquiryInstallments"></xs:element>
+  <xs:element name="BillingInquiryInvoiceDetail" type="ns4:billingInquiryInvoiceDetail"></xs:element>
+  <xs:element name="BillingInquiryNOCDetail" type="ns4:billingInquiryNOCDetail"></xs:element>
+  <xs:element name="BillingInquiryOutput" type="ns1:billingInquiryOutput"></xs:element>
+  <xs:element name="BillingInquiryReceivableDetail" type="ns4:billingInquiryReceivableDetail"></xs:element>
+  <xs:element name="BillingInquirySummary" type="ns4:billingInquirySummary"></xs:element>
+  <xs:element name="BillingInquiryTransactions" type="ns4:billingInquiryTransactions"></xs:element>
+  <xs:element name="IWAAuthentication">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Domain" type="xs:string"></xs:element>
+        <xs:element name="User" type="xs:string"></xs:element>
+        <xs:element name="SecretKey" type="xs:string"></xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InputRequest" type="ns3:inputRequest"></xs:element>
+  <xs:element name="Message" type="ns5:message"></xs:element>
+  <xs:element name="RequestResponse" type="ns5:requestResponse"></xs:element>
+  <xs:element name="SSOAuth">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Username" type="xs:string"></xs:element>
+        <xs:element name="Token" type="xs:string"></xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ServiceAccountAuthentication">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Token" type="xs:string"></xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TokenAuthentication">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Token" type="xs:string"></xs:element>
+        <xs:element name="TimeStamp" type="xs:string"></xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UsernamePasswordAuth">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Username" type="xs:string"></xs:element>
+        <xs:element name="Password" type="xs:string"></xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="service" type="tns:service"></xs:element>
+  <xs:element name="serviceResponse" type="tns:serviceResponse"></xs:element>
+  <xs:complexType name="service">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="inputMsg" type="ns1:billingInquiryInput"></xs:element>
+      <xs:element minOccurs="0" name="UserAuthentication" type="ns2:authentication"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType abstract="true" name="baseWSVo">
+    <xs:sequence></xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="serviceResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="ns1:billingInquiryOutput"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Exception" type="tns:Exception"></xs:element>
+  <xs:complexType name="Exception">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="message" type="xs:string"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://com/majescomastek/stgicd/ws/meta/billinginquiryinterface" targetNamespace="http://com/majescomastek/stgicd/ws/meta/authentication" version="1.0">
+<xs:import namespace="http://com/majescomastek/stgicd/ws/meta/billinginquiryinterface"></xs:import>
+<xs:complexType name="authentication">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="UsernamePasswordAuth">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Username" type="xs:string"></xs:element>
+            <xs:element name="Password" type="xs:string"></xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="SSOAuth">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Username" type="xs:string"></xs:element>
+            <xs:element name="Token" type="xs:string"></xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="IWAAuthentication">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Domain" type="xs:string"></xs:element>
+            <xs:element name="User" type="xs:string"></xs:element>
+            <xs:element name="SecretKey" type="xs:string"></xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="TokenAuthentication">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Token" type="xs:string"></xs:element>
+            <xs:element name="TimeStamp" type="xs:string"></xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="ServiceAccountAuthentication">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Token" type="xs:string"></xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="Exception">
+    <wsdl:part element="tns:Exception" name="Exception">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="service">
+    <wsdl:part element="tns:service" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="serviceResponse">
+    <wsdl:part element="tns:serviceResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="BillingInquiryInterface">
+    <wsdl:operation name="service">
+      <wsdl:input message="tns:service" name="service">
+    </wsdl:input>
+      <wsdl:output message="tns:serviceResponse" name="serviceResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:Exception" name="Exception">
+    </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BillingInquiryInterfaceSoapBinding" type="tns:BillingInquiryInterface">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"></soap:binding>
+    <wsdl:operation name="service">
+      <soap:operation soapAction="" style="document"></soap:operation>
+      <wsdl:input name="service">
+        <soap:body use="literal"></soap:body>
+      </wsdl:input>
+      <wsdl:output name="serviceResponse">
+        <soap:body use="literal"></soap:body>
+      </wsdl:output>
+      <wsdl:fault name="Exception">
+        <soap:fault name="Exception" use="literal"></soap:fault>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="BillingInquiryInterface">
+    <wsdl:port binding="tns:BillingInquiryInterfaceSoapBinding" name="BillingInquiryInterfacePort">
+      <soap:address location="http://10.90.120.107:8092/ICDService/services/BillingInquiryInterface"></soap:address>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
